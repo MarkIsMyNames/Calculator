@@ -22,7 +22,3 @@ To use this application, ensure the following:
 ## How to Use
 - Run the main class. Once the application starts, follow the prompts to choose the desired operation.
 - Input values as requested by the program. ✅
-
-
-### Made by
-Tom Byrne, Emer O'Connor, Mark Drohan, Somi Vinnikota
