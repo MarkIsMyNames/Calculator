@@ -23,10 +23,6 @@ public class Calculations{
 
     public Calculations(){} //Default constructor
 
-    protected String getCalculationInput(){
-        return calculationInput;
-    }
-
     public double evaluate(String calculationInput){
 
         // Shunting Yard Algorithm implementation (https://brilliant.org/wiki/shunting-yard-algorithm/)
@@ -61,7 +57,7 @@ public class Calculations{
             }
             else if (Character.isLetter(ch)) {
                 currentToken.append(ch); // Add letters to the current token
-            } else if (Character.isDigit(ch) && currentToken.length() > 0 && Character.isLetter(currentToken.charAt(0))) {
+            } else if (Character.isDigit(ch) && !currentToken.isEmpty() && Character.isLetter(currentToken.charAt(0))) {
                 // Handle cases like "root3" or "log5" by appending the digit to the function token
                 currentToken.append(ch);
             } else {
@@ -132,7 +128,7 @@ public class Calculations{
                 stack.push(Double.parseDouble(token));
             } else if (isFunction(token)) {
                 if (token.startsWith("root") || token.startsWith("log")) {
-                    if (stack.size() < 1) { // Check if there's at least one argument
+                    if (stack.isEmpty()) { // Check if there's at least one argument
                         throw new IllegalStateException("Invalid expression. Not enough values for double-argument function: " + token);
                     }
                     double value = stack.pop();
@@ -173,11 +169,9 @@ public class Calculations{
     }
 
     private boolean isFunction(String token){
-        return token.equals("sin") || token.equals("cos") || token.equals("log") //default log10
-                || token.equals("ln") || token.equals("sqrt") || token.equals("tan")
+        return token.equals("sin") || token.equals("cos") || token.equals("ln") || token.equals("sqrt") || token.equals("tan")
                 || token.equals("sinh") || token.equals("cosh") || token.equals("tanh") //As many functions can be added to this as needed
                 || token.startsWith("root") || token.startsWith("log"); //Using startsWith() method to handle functions that take 2 numbers
-        //I intend to edit the log function later so that any type of log can be used
     }
 
 
@@ -227,7 +221,6 @@ public class Calculations{
             case "sinh" -> Math.sinh(Math.toRadians(a));
             case "cosh" -> Math.cosh(Math.toRadians(a));
             case "tanh" -> Math.tanh(Math.toRadians(a));
-            case "log" -> Math.log10(a);
             case "sqrt" -> Math.sqrt(a);
             case "ln" -> Math.log(a);
             //Room to add more functions here if needed
