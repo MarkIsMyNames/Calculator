@@ -23,7 +23,6 @@ public class InputProcessor {
         //Constant Replacer
         input = constantReplacer(input);
 
-        calculations.CalculationsProcessor.setProcessedString(input);
     }
 
     private String minusFixer(String input){

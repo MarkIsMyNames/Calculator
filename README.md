@@ -22,3 +22,7 @@ To use this application, ensure the following:
 ## How to Use
 - Run the main class. Once the application starts, follow the prompts to choose the desired operation.
 - Input values as requested by the program. ✅
+
+## This was originally a group project for an assessment
+- I've been updating the code and fixing all the issues
+- I've also been trying to improve the UI and performance

@@ -15,9 +15,7 @@ public class Calculations{
         originalInput = calculationInput; //Just saving the original input to output to terminal later as it looks cleaner than the version with the regex
 
         //Regex to replace certain Strings with constants e.g. g=9.81
-        CalculationsProcessor processor = new CalculationsProcessor(calculationInput);
-
-        this.calculationInput = processor.toString();
+        this.calculationInput = CalculationsProcessor.calculationProcess(calculationInput);
     }
 
 
